@@ -7,12 +7,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { cn, getSubjectColor } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CompanionsListProps {
   title: string;
-  companions?: Companion[]; // Adjust type as needed
+  companions?: Companion[];
   classNames?: string;
 }
 
@@ -23,7 +23,8 @@ const CompanionsList = ({
 }: CompanionsListProps) => {
   return (
     <article className={cn("companion-list", classNames)}>
-      <h2 className="font-bold text-3xl">Recent Sessions</h2>
+      <h2 className="font-bold text-3xl">{title}</h2>
+
       <Table>
         <TableHeader>
           <TableRow>
@@ -44,7 +45,7 @@ const CompanionsList = ({
                     >
                       <Image
                         src={`/icons/${subject}.svg`}
-                        alt="subject"
+                        alt={subject}
                         width={35}
                         height={35}
                       />
@@ -66,7 +67,7 @@ const CompanionsList = ({
                 >
                   <Image
                     src={`/icons/${subject}.svg`}
-                    alt="subject"
+                    alt={subject}
                     width={18}
                     height={18}
                   />
@@ -80,8 +81,8 @@ const CompanionsList = ({
                   <Image
                     src="/icons/clock.svg"
                     alt="minutes"
-                    height={14}
                     width={14}
+                    height={14}
                     className="md:hidden"
                   />
                 </div>
